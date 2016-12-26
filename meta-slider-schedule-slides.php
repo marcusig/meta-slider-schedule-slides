@@ -228,24 +228,6 @@ class Meta_Slider_Schedule_Slides{
 		printf( __( '%1$s %2$s, %3$s @ %4$s:%5$s' ), $month, $day, $year, $hour, $minute );
 
 		echo '</div><input type="hidden" id="'.$input_name.'_ss" name="attachment['.$slide_id.']['.$input_name.'][ss]" value="' . $ss . '" />';
-
-		// if ( $multi ) return;
-
-		// echo "\n\n";
-		// $map = array(
-		// 	'mm' => array( $mm, $cur_mm ),
-		// 	'jj' => array( $jj, $cur_jj ),
-		// 	'aa' => array( $aa, $cur_aa ),
-		// 	'hh' => array( $hh, $cur_hh ),
-		// 	'mn' => array( $mn, $cur_mn ),
-		// );
-		// foreach ( $map as $timeunit => $value ) {
-		// 	list( $unit, $curr ) = $value;
-
-		// 	echo '<input type="hidden" id="hidden_' . $timeunit . '" name="hidden_' . $timeunit . '" value="' . $unit . '" />' . "\n";
-		// 	$cur_timeunit = 'cur_' . $timeunit;
-		// 	echo '<input type="hidden" id="' . $cur_timeunit . '" name="' . $cur_timeunit . '" value="' . $curr . '" />' . "\n";
-		// }
 	?>
 	<?php
 	}
