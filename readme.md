@@ -1,17 +1,22 @@
-=== Plugin Name ===
-Contributors: mklacroix
-Tags: metaslider,addon,hide slides,schedule slides
-Requires at least: 3.5
-Tested up to: 4.6
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Schedule date and time show / hide for your meta slider slides
+#Meta Slider Schedule Slides
 
-== Description ==
+**Schedule date and time show / hide for your meta slider slides**
 
-** This plugin is an addon and requires [Metaslider](https://wordpress.org/plugins/ml-slider)
+Plugin url: [https://wordpress.org/plugins/meta-slider-schedule-slides/](https://wordpress.org/plugins/meta-slider-schedule-slides/)
+
+- Contributors: mklacroix
+- Tags: metaslider,addon,hide slides,schedule slides
+- Requires at least: 4.0
+- Tested up to: 4.7
+- Stable tag: 1.0
+- License: GPLv2 or later
+- License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+
+##Description
+
+**This plugin is an addon and requires [Metaslider](https://wordpress.org/plugins/ml-slider)**
 
 **Features**
 
@@ -23,7 +28,7 @@ Schedule date and time show / hide for your meta slider slides
 * English
 * French
 
-== Installation ==
+##Installation
 
 The easy way:
 
@@ -37,9 +42,9 @@ The not so easy way:
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Manage your slideshows using the 'Meta Slider' menu option
 
-== Frequently Asked Questions ==
+##Frequently Asked Questions
+/
 
-== Changelog ==
+##Changelog
 
-= 1.0 [26/12/16] =
-* Initial version
+- *1.0 [26/12/16]* - **Initial version**
