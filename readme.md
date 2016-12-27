@@ -1,4 +1,8 @@
-=== Plugin Name ===
+
+#Meta Slider Schedule Slides
+
+Plugin url: https://wordpress.org/plugins/meta-slider-schedule-slides/
+
 Contributors: mklacroix
 Tags: metaslider,addon,hide slides,schedule slides
 Requires at least: 3.5
