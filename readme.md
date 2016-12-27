@@ -1,4 +1,3 @@
-
 #Meta Slider Schedule Slides
 
 **Schedule date and time show / hide for your meta slider slides**
