@@ -1,3 +1,4 @@
+
 #Meta Slider Schedule Slides
 
 **Schedule date and time show / hide for your meta slider slides**
@@ -7,8 +8,8 @@ Plugin url: [https://wordpress.org/plugins/meta-slider-schedule-slides/](https:/
 - Contributors: mklacroix
 - Tags: metaslider,addon,hide slides,schedule slides
 - Requires at least: 4.0
-- Tested up to: 4.7
-- Stable tag: 1.0
+- Tested up to: 4.8
+- Stable tag: 1.0.3
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,4 +47,7 @@ The not so easy way:
 
 ##Changelog
 
+- *1.0.3 [15/06/17]* - **Added an Admin title field for a better slides organization.**
+- *1.0.2 [17/03/17]* - **Fixed date issue. Used ’date()’ which returns UTC date  instead of wp own ’current_time()’ that returns the correct timezone.**  
+- *1.0.1 [27/12/16]* - **Fixed initial bug in query, causing not to display any slide when user had not saved slider at least once after installing plugin.** 
 - *1.0 [26/12/16]* - **Initial version**

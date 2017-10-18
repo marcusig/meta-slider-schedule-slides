@@ -15,35 +15,64 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../meta-slider-schedule-slides.php:117
+#: ../meta-slider-schedule-slides.php:133
 msgid "Schedule"
 msgstr ""
 
-#: ../meta-slider-schedule-slides.php:122
+#: ../meta-slider-schedule-slides.php:138
 msgid "Hide slide"
 msgstr ""
 
-#: ../meta-slider-schedule-slides.php:137
+#: ../meta-slider-schedule-slides.php:139
+msgid "Slide Title (Admin only)"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:155
 msgid "Schedule slide"
 msgstr ""
 
-#: ../meta-slider-schedule-slides.php:262
+#: ../meta-slider-schedule-slides.php:158
+#: ../meta-slider-schedule-slides.php:160
+msgid "From"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:163
+#: ../meta-slider-schedule-slides.php:165
+msgid "To"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:235
+msgid "Month"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:241
+#, php-format
+msgid "%1$s-%2$s"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:245
+msgid "Day"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:246
+msgid "Year"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:247
+msgid "Hour"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:248
+msgid "Minute"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:252
+#, php-format
+msgid "%1$s %2$s, %3$s @ %4$s:%5$s"
+msgstr ""
+
+#: ../meta-slider-schedule-slides.php:268
 msgid ""
 "Meta Slider Schedule Slides could not be loaded because the plugin "
 "<strong>MetaSlider</strong> wasn't fount."
-msgstr ""
-
-#: ../meta-slider-schedule-slides.php:6
-msgid ""
-"Schedule date and time show / hide for your meta slider slides"
-msgstr ""
-
-#: ../meta-slider-schedule-slides.php:140,142
-msgid ""
-"From"
-msgstr ""
-
-#: ../meta-slider-schedule-slides.php:145,147
-msgid ""
-"To"
 msgstr ""

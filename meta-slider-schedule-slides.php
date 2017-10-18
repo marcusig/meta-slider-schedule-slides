@@ -3,11 +3,11 @@
  *
  * Plugin Name: Meta Slider Schedule Slides
  * Description: Schedule Slides in Meta Slider, with date and time. Also adds a "hide" checkbox for your Metaslider slides
- * Version:     1.0
+ * Version:     1.0.3
  * Author:      Marc Lacroix
  * Author URI:  https://mklacroix.com
  * License:     GPL-2.0+
- * Copyright:   2016 Marc Lacroix
+ * Copyright:   2017 Marc Lacroix
  *
  * Text Domain: metaslider_schedule_slides
  * Domain Path: /languages/
@@ -57,18 +57,33 @@ class Meta_Slider_Schedule_Slides{
 	// Quite a complex query, so hopefully it won't be too harmful on performences.
 	public function frontend_filters( $args, $slider_id, $settings ) {
 		if( !is_admin() ) {
+
 			$args['meta_query'] = array(
 				'relation' => 'AND',
 				array(
 					// slide is not hidden
-					'key' => '_meta_slider_slide_is_hidden',
-					'value' => 'yes',
-					'compare' => '!='
+					'relation' => 'OR',
+					array(
+						'key' => '_meta_slider_slide_is_hidden',
+						'value' => 'yes',
+						'compare' => '!='
+					),
+					array(
+						'key' => '_meta_slider_slide_is_hidden',
+						'value' => '',
+						'compare' => 'NOT EXISTS', // works!
+					),
+
 				),
 				// and 	
 				array(
 					'relation' => 'OR',
 					// slide is not scheduled
+					array(
+						'key' => '_meta_slider_slide_is_scheduled',
+						'value' => '',
+						'compare' => 'NOT EXISTS', // works!
+					),
 					array(
 						'key' => '_meta_slider_slide_is_scheduled',
 						'value' => 'no',
@@ -84,14 +99,14 @@ class Meta_Slider_Schedule_Slides{
 						// and _meta_slider_slide_scheduled_start < NOW
 						array(
 							'key' => '_meta_slider_slide_scheduled_start',
-							'value' => date( "Y-m-d H:i:s" ),
+							'value' => current_time( "Y-m-d H:i:s" ),
 							'type' => 'datetime',
 							'compare' => '<',
 						),
 						// and _meta_slider_slide_scheduled_end > NOW
 						array(
 							'key' => '_meta_slider_slide_scheduled_end',
-							'value' => date( "Y-m-d H:i:s" ),
+							'value' => current_time( "Y-m-d H:i:s" ),
 							'type' => 'datetime',
 							'compare' => '>',
 						),
@@ -108,6 +123,7 @@ class Meta_Slider_Schedule_Slides{
 	// Admin 
 	public function slide_admin_tab( $tabs, $slide, $slider, $settings ) {
 		$hide_slide = get_post_meta( $slide->ID, '_meta_slider_slide_is_hidden', true );
+		$admin_title = get_post_meta( $slide->ID, '_meta_slider_slide_admin_title', true );
 		ob_start();
 		$this->slide_admin_tab_controls( $slide );
 		$content = ob_get_contents();
@@ -118,8 +134,10 @@ class Meta_Slider_Schedule_Slides{
 			'content' => $content
 		);
 
-		if( isset( $tabs['general'] ) )
-			$tabs['general']['content'] .= '<label><input type="checkbox" name="attachment['.$slide->ID.'][hide_slide]" '.($hide_slide == 'yes' ? 'checked="checked"':'') .'> '.__( 'Hide slide', 'metaslider_schedule_slides' ).'</label>';
+		if( isset( $tabs['general'] ) ) {
+			$tabs['general']['content'] .= '<div class="row"><label><input type="checkbox" name="attachment['.$slide->ID.'][hide_slide]" '.($hide_slide == 'yes' ? 'checked="checked"':'') .'> '.__( 'Hide slide', 'metaslider_schedule_slides' ).'</label></div>';
+			$tabs['general']['content'] .= '<div class="row"><label><input type="texte" name="attachment['.$slide->ID.'][admin_title]" placeholder="'.__( 'Slide Title (Admin only)', 'metaslider_schedule_slides' ).'" value="'.$admin_title.'"></label></div>';
+		}
 
 		return $tabs;
 	}
@@ -182,6 +200,12 @@ class Meta_Slider_Schedule_Slides{
 			update_post_meta( $slide_id, '_meta_slider_slide_scheduled_start', sanitize_text_field( $start_date ), $schedule_start );
 			update_post_meta( $slide_id, '_meta_slider_slide_scheduled_end', sanitize_text_field( $end_date ), $schedule_end );
 		}
+
+		// get saved title
+		$admin_title = get_post_meta( $slide->ID, '_meta_slider_slide_admin_title', true );
+		// update saved title
+		update_post_meta( $slide_id, '_meta_slider_slide_admin_title', sanitize_text_field( $fields['admin_title'] ), $admin_title );
+
 	}
 
 	/*
